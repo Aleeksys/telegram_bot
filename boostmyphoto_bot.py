@@ -25,7 +25,7 @@ def process_image(image_path):
 
 # Команда /start
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Привет! Отправьте мне фото, и я улучшу его!")
+    await update.message.reply_text("Привет! Отправьте мне фото, и я улучшу его!!!")
 
 # Обработка фото
 async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):

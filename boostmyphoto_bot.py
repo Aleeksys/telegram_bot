@@ -41,10 +41,10 @@ def process_image(image_path: str) -> str | None:
         return result.get("output", None)  # Возвращаем URL обработанного изображения
 
     except requests.exceptions.RequestException as e:
-        logger.error(f"Ошибка при работе с API Replicate: {e}")
+        logging.error(f"Ошибка при работе с API Replicate: {e}")
         return None
     except Exception as e:
-        logger.error(f"Неизвестная ошибка при обработке изображения: {e}")
+        logging.exception(f"Неизвестная ошибка при обработке изображения: {e}")
         return None
 
 # Команда /start
@@ -70,13 +70,13 @@ async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         if processed_image_url:
             await update.message.reply_photo(processed_image_url)
-            logger.info(f"Обработанное фото отправлено пользователю {update.message.chat.id}.")
+            logging.info(f"Обработанное фото отправлено пользователю {update.message.chat.id}.")
         else:
             await update.message.reply_text("Что-то пошло не так, попробуйте еще раз.")
-            logger.warning(f"Не удалось обработать фото для пользователя {update.message.chat.id}.")
+            logging.warning(f"Не удалось обработать фото для пользователя {update.message.chat.id}.")
 
     except Exception as e:
-        logger.error(f"Ошибка при обработке фото от пользователя {update.message.chat.id}: {e}")
+        logging.exception(f"Ошибка при обработке фото от пользователя {update.message.chat.id}: {e}")
         await update.message.reply_text("Произошла ошибка при обработке вашего фото. Попробуйте позже.")
 
 # Основной цикл

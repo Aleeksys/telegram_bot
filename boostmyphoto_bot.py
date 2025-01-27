@@ -56,7 +56,9 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
         # Скачиваем фотографию
+        print("Фото получено!") #Отладочное сообщение
         photo = update.message.photo[-1]
+        print("Файл фото:", photo) #Отладка данных о фото
         file = await photo.get_file()
         file_path = "input.jpg"
         await file.download_to_drive(file_path)

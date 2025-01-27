@@ -12,8 +12,8 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Укажите ваш токен Telegram и ключ Replicate API
-TELEGRAM_TOKEN = os.getenv("8154376957:AAH2mVZHymltzpGeZSQw2lVvyIApAhE6qLQ")
-REPLICATE_API_TOKEN = os.getenv("r8_P1NA0w0zkZQWAK6ZaW0CXTaiS8y3Y013ELPc3")
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+REPLICATE_API_TOKEN = os.getenv("REPLICATE_API_TOKEN")
 
 # Проверка токенов
 if not TELEGRAM_TOKEN or not REPLICATE_API_TOKEN:
